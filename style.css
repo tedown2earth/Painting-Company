@@ -1,8 +1,9 @@
 .navbar{
     background-color:#FF5D73;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    padding-left: 15px;
-    padding-right: 15px;
+    padding: 15px;
+    margin: 30px;
+    border: 1px solid;
 }
 .navdiv{
     display: flex;
