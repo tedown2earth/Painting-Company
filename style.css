@@ -35,3 +35,43 @@ body{
     font-weight: 700;
     color: #FFFFFF;
 }
+form{
+    max-width: 600px;
+    margin: 2rem auto;
+    padding: 1.5rem;
+    border-radius: 10px;
+}
+label{
+    display: block;
+    margin-bottom: 0.4rem;
+    font-weight: 600;
+}
+input,
+select,
+textarea {
+  width: 100%;
+  padding: 0.7rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 0.95rem;
+}
+button[type="submit"] {
+  width: 100%;
+  padding: 0.8rem;
+  background-color: #3498db;
+  color: #ffffff;
+  border: none;
+  border-radius: 6px;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  margin-top: 0.5rem;
+  transition: background-color 0.3s ease;
+}
+
+button[type="submit"]:hover {
+  background-color: #2980b9;
+}
+.requestBody{
+    background-image: url("ChatGPT Image Feb 13, 2026, 10_14_15 AM.png");
+}
