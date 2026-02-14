@@ -85,3 +85,59 @@ button[type="submit"]:hover {
     text-align: center;
     color: #000000;
 }
+.identify{
+    color: #2980b9;
+}
+#about{
+    font-style: italic;
+    font-weight: 400;
+    font-family:'Times New Roman', Times, serif;
+    color: #f0ebd8;
+}
+.four-grid{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    padding: 40px;
+    background-color: #0d1321;;
+}
+.grid-card{
+    background-color: #702323;
+    padding: 25px;
+    border-radius: 12px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.08);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.grid-card h3{
+    color: #2980b9;
+    margin-bottom: 10px;
+    font-size: 1.3rem;
+}
+.grid-card p{
+    color: #000000;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: large;
+}
+.grid-card:hover{
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.12);
+}
+#request{
+    display: grid;
+    gap: 1rem;
+    margin-top: 1.5rem;
+}
+.about{
+    color: #2980b9;
+    text-align: center; 
+    font-size:xx-large;   
+    padding-top: 70px;
+}
+.us{
+    color: #FFFFFF;
+    font-size: medium;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
