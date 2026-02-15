@@ -34,3 +34,6 @@ document.addEventListener("DOMContentLoaded", function () {
                 service: service,
                 location: location
             };
+
+    // Create empty array
+             const requests = JSON.parse(localStorage.getItem("requests")) || [];
