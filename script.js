@@ -37,3 +37,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // Create empty array
              const requests = JSON.parse(localStorage.getItem("requests")) || [];
+
+             
+     // Add new request
+            requests.push(request);
