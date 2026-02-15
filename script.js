@@ -82,4 +82,17 @@ document.addEventListener("DOMContentLoaded", function () {
             requestsContainer.appendChild(card);
         });
     }
+
+    // Delete function
+     function deleteRequest(id) {
+        let requests = JSON.parse(localStorage.getItem("requests")) || [];
+        requests = requests.filter(function (req) {
+            return req.id !== id;
+        });
+
+        localStorage.setItem("requests", JSON.stringify(requests));
+        location.reload(); // Refresh page to update UI
+    }
+
+
         
