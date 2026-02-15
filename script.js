@@ -25,3 +25,12 @@ document.addEventListener("DOMContentLoaded", function () {
                 alert("Please fill in all fields.");
                 return;
             }
+
+    // Create request object
+            const request = {
+                id: Date.now(), 
+                name: name,
+                phone: phone,
+                service: service,
+                location: location
+            };
