@@ -46,3 +46,7 @@ document.addEventListener("DOMContentLoaded", function () {
             localStorage.setItem("requests", JSON.stringify(requests));        
 
         alert("Request submitted successfully!");
+      
+     // Clear form
+            form.reset();
+            
