@@ -19,6 +19,9 @@ document.addEventListener("DOMContentLoaded", function () {
             const location = document.getElementById("location").value.trim();
 
 
+    // Simple Validation
     
-            
-            
+             if (name === "" || phone === "" || service === "" || location === "") {
+                alert("Please fill in all fields.");
+                return;
+            }
