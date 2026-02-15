@@ -11,3 +11,14 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
 });
+
+    // Get input values
+            const name = document.getElementById("name").value.trim();
+            const phone = document.getElementById("phone").value.trim();
+            const service = document.getElementById("service").value;
+            const location = document.getElementById("location").value.trim();
+
+
+    
+            
+            
