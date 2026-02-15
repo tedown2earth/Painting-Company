@@ -50,3 +50,36 @@ document.addEventListener("DOMContentLoaded", function () {
      // Clear form
             form.reset();
             
+
+     const requestsContainer = document.getElementById("requests");
+
+    if (requestsContainer) {
+        const requests = JSON.parse(localStorage.getItem("requests")) || [];
+
+        if (requests.length === 0) {
+            requestsContainer.innerHTML = "<p>No service requests yet.</p>";
+            return;
+        }
+
+        requests.forEach(function (request) {
+            const card = document.createElement("div");
+            card.className = "request-card";
+
+            card.innerHTML = `
+                <h3>${request.name}</h3>
+                <p><strong>Phone:</strong> ${request.phone}</p>
+                <p><strong>Service:</strong> ${request.service}</p>
+                <p><strong>Location:</strong> ${request.location}</p>
+                <button class="delete-btn">Delete</button>
+            `;
+
+            const deleteButton = card.querySelector(".delete-btn");
+
+            deleteButton.addEventListener("click", function () {
+                deleteRequest(request.id);
+            });
+
+            requestsContainer.appendChild(card);
+        });
+    }
+        
