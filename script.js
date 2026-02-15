@@ -44,3 +44,5 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // Save to localStorage
             localStorage.setItem("requests", JSON.stringify(requests));        
+
+        alert("Request submitted successfully!");
