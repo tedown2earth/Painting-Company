@@ -1,69 +1,91 @@
+
+
 document.addEventListener("DOMContentLoaded", function () {
+
 
     const form = document.getElementById("serviceForm");
 
     if (form) {
-        form.addEventListener("submit", function (event) {
-            event.preventDefault(); // Stop page refresh
+        form.addEventListener("submit", function (e) {
+            e.preventDefault();
 
-            console.log("Form submitted successfully");
-        });
-    }
+            // Get input elements
+            const nameInput = document.getElementById("name");
+            const phoneInput = document.getElementById("phone");
+            const serviceInput = document.getElementById("service");
+            const locationInput = document.getElementById("location");
 
-});
+            // Safety check
+            if (!nameInput || !phoneInput || !serviceInput || !locationInput) {
+                alert("Form error. Please reload the page.");
+                return;
+            }
 
-    // Get input values
-            const name = document.getElementById("name").value.trim();
-            const phone = document.getElementById("phone").value.trim();
-            const service = document.getElementById("service").value;
-            const location = document.getElementById("location").value.trim();
+            // Get values
+            const customerName = nameInput.value.trim();
+            const phoneNumber = phoneInput.value.trim();
+            const serviceType = serviceInput.value;
+            const customerLocation = locationInput.value.trim();
 
-
-    // Simple Validation
-    
-             if (name === "" || phone === "" || service === "" || location === "") {
+            // Validation
+            if (
+                customerName === "" ||
+                phoneNumber === "" ||
+                serviceType === "" ||
+                customerLocation === ""
+            ) {
                 alert("Please fill in all fields.");
                 return;
             }
 
-    // Create request object
+            // Create request object
             const request = {
-                id: Date.now(), 
-                name: name,
-                phone: phone,
-                service: service,
-                location: location
+                id: Date.now(),
+                name: customerName,
+                phone: phoneNumber,
+                service: serviceType,
+                location: customerLocation
             };
 
-    // Create empty array
-             const requests = JSON.parse(localStorage.getItem("requests")) || [];
+            // Get stored requests
+            let requests = [];
+            try {
+                requests = JSON.parse(localStorage.getItem("requests")) || [];
+            } catch {
+                requests = [];
+            }
 
-
-     // Add new request
+            // Save request
             requests.push(request);
+            localStorage.setItem("requests", JSON.stringify(requests));
 
-    // Save to localStorage
-            localStorage.setItem("requests", JSON.stringify(requests));        
-
-        alert("Request submitted successfully!");
-      
-     // Clear form
+            alert("Request submitted successfully!");
             form.reset();
-            
+        });
+    }
 
-     const requestsContainer = document.getElementById("requests");
+            // Display requests
+
+    const requestsContainer = document.getElementById("requests");
 
     if (requestsContainer) {
-        const requests = JSON.parse(localStorage.getItem("requests")) || [];
+        let requests = [];
+        try {
+            requests = JSON.parse(localStorage.getItem("requests")) || [];
+        } catch {
+            requests = [];
+        }
 
         if (requests.length === 0) {
-            requestsContainer.innerHTML = "<p>No service requests yet.</p>";
+            requestsContainer.innerHTML = "<p>No service requests submitted yet.</p>";
             return;
         }
 
+        requestsContainer.innerHTML = "";
+
         requests.forEach(function (request) {
             const card = document.createElement("div");
-            card.className = "request-card";
+            card.classList.add("request-card");
 
             card.innerHTML = `
                 <h3>${request.name}</h3>
@@ -73,9 +95,8 @@ document.addEventListener("DOMContentLoaded", function () {
                 <button class="delete-btn">Delete</button>
             `;
 
-            const deleteButton = card.querySelector(".delete-btn");
-
-            deleteButton.addEventListener("click", function () {
+            const deleteBtn = card.querySelector(".delete-btn");
+            deleteBtn.addEventListener("click", function () {
                 deleteRequest(request.id);
             });
 
@@ -83,16 +104,22 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     }
 
-    // Delete function
-     function deleteRequest(id) {
-        let requests = JSON.parse(localStorage.getItem("requests")) || [];
+   
+
+    function deleteRequest(id) {
+        let requests = [];
+        try {
+            requests = JSON.parse(localStorage.getItem("requests")) || [];
+        } catch {
+            requests = [];
+        }
+
         requests = requests.filter(function (req) {
             return req.id !== id;
         });
 
         localStorage.setItem("requests", JSON.stringify(requests));
-        location.reload(); // Refresh page to update UI
+        location.reload();
     }
 
-
-        
+});
