@@ -3,6 +3,9 @@
 ## Project overview
 The Perfect Touch Painters Website is a front-end web application designed to represent a professional painting company. The website allows customers to learn about the company, view its services, and submit painting service requests. All submitted requests are stored locally and displayed on the requests page.
 
+## Live Site
+https://tedown2earth.github.io/Painting-Company/
+
 ## Features
  1. Home Page -> Introduces the company.
 
